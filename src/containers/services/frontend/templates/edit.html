@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+
+    <title>{{ app_title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+    <nav>
+        <div class="inner-nav">
+            <div class="nav-item">
+                <a class="site-name" href="https://github.com/zedeus/nitter">Based on Nitter.net</a>
+            </div>
+            <a href="/">
+                <h1>{{ app_title }}</h1>
+            </a>
+            <div class="nav-item right">
+                <a>[Insert socials, settings, etc...]</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="overlay-panel">
+            <h1>{{ task.name }}</h1>
+            <div class="task-textarea" contenteditable="true">
+                {% for line in task.text.split("\n") %}
+                    <div>{{ line }}<br></div>
+                {% endfor %}
+            </div>
+
+            <button>Salvar</button>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="{{ url_for('static', filename='edit.js') }}"></script>
+</body>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+
+    <title>{{ app_title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+    <nav>
+        <div class="inner-nav">
+            <div class="nav-item">
+                <a class="site-name" href="https://github.com/zedeus/nitter">Based on Nitter.net</a>
+            </div>
+            <a href="/">
+                <h1>{{ app_title }}</h1>
+            </a>
+            <div class="nav-item right">
+                <a>[Insert socials, settings, etc...]</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="tasks-container">
+            <div class="tasks-header">
+                <div class="add-task-field">
+                    <div class="pref-input">
+                        <input id="add-task-input" type="text" autofocus="" placeholder="Adicionar tarefa..." dir="auto" autocomplete="off">
+                    </div>
+                    <button>Adicionar</button>
+                </div>
+            </div>
+
+            <template id="task-template">
+                <div class="task-item">
+                    <a class="task-link"></a>
+                    <div class="task-body">
+                        <div class="task-header">
+                            <a class="task-remove-button" href="#">
+                                <img class="logo round" src="{{ url_for('static', filename='remove.png') }}" alt="">
+                            </a>
+                            <div class="task-name-row">
+                                <div class="task-name-container">
+                                    <a class="task-name"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-content" dir="auto"></div>
+                    </div>
+                </div>
+            </template>
+
+            <div class="tasks">
+                <!-- Tasks will be put here (cloned from template) -->
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
